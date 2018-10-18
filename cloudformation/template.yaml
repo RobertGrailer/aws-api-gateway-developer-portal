@@ -469,10 +469,15 @@ Resources:
           - Effect: Allow
             Action:
             - s3:ListBucket
-            Resource: !Join
-              - ''
-              - - 'arn:aws:s3:::'
-                - !Ref ArtifactsS3BucketName
+            Resource: 
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref ArtifactsS3BucketName
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref DevPortalSiteS3BucketName
           - Effect: Allow
             Action:
             - s3:GetObject
