@@ -284,13 +284,13 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref DevPortalSiteS3BucketName
-      AccessControl: PublicRead
+      # AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
         RoutingRules:
           - RoutingRuleCondition:
-              HttpErrorCodeReturnedEquals: 404
+              HttpErrorCodeReturnedEquals: 403
             RedirectRule:
               HostName: !Join
                 - ''
