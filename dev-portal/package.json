@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build; cp -r ./build ../lambdas/static-asset-uploader",
+    "build": "react-scripts build; rm -rf ../lambdas/static-asset-uploader/build; cp -r ./build ../lambdas/static-asset-uploader",
     "deploy": "node ./scripts/deploy-stack.js",
     "write-config": "node -e 'required(\"./scripts/write-config.js\")'",
     "release": "npm run build && npm run deploy",
