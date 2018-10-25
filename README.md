@@ -24,13 +24,13 @@ If you have previously set up a v1 developer portal (non-SAM deployed), you will
 Run:
 >Replace the `your-lambda-artifacts-bucket-name` with a bucket that you manage and must already exist
 ```bash
-sam package --template-file ./cloudformation/template.yaml --output-template-file ./cloudformation/packaged.yaml --s3-bucket your-lambda-artifacts-bucket-name
+sam package --template-file ./cloudformation/template.yaml --output-template-file ./cloudformation/packaged.yaml --s3-bucket regrailer-dev-portal-lambda
 ```
 
 Then run: 
 >Replace `custom-prefix` in the command below with some prefix that is globally unique, like your org name or username and run
 ```bash
-sam deploy --template-file ./cloudformation/packaged.yaml --stack-name "dev-portal" --capabilities CAPABILITY_NAMED_IAM --parameter-overrides DevPortalSiteS3BucketName="custom-prefix-dev-portal-static-assets" ArtifactsS3BucketName="custom-prefix-dev-portal-artifacts"
+sam deploy --template-file ./cloudformation/packaged.yaml --stack-name "dev-portal" --capabilities CAPABILITY_NAMED_IAM --parameter-overrides DevPortalSiteS3BucketName="regrailer-dev-portal-static-assets" ArtifactsS3BucketName="regrailer-dev-portal-artifacts"
 ```
 
 The command will exit when the stack creation is successful. If you'd like to watch it create in real-time, you can log into the cloudformation console.
